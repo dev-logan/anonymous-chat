@@ -56,7 +56,7 @@
         socket.on('receive users', (nicknames) => {
             $('#userLog').empty()
             for (const nickname of nicknames) {
-                $('#userLog').append(`<p>${nickname}</p>`)
+                $('#userLog').append(`<p>🟢 ${nickname}</p>`)
             }
         })
 
@@ -94,7 +94,7 @@
                             <h3>Chat 🗣</h3>
                         </div>
                         <div class="col-4">
-                            <h3>접속 중 🟢</h3>
+                            <h3>접속 중</h3>
                         </div>
                     </div>
                 </div>
