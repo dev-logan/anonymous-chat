@@ -32,12 +32,16 @@
             socket.emit('send users', nickname)
 
             $('#message').keypress(function (e) {
-            if (e.keyCode == 13)
-                $('#input').click();
-        });
+                if (e.keyCode == 13)
+                    $('#input').click();
+            });
         })
 
-        
+        function changeName() {
+            const nickname = prompt('<항해 대나무숲> 닉네임을 입력하세요.')
+            $('#nickname').text(nickname)
+            socket.emit('send users', nickname)
+        }
 
         function postChat() {
             socket.emit('send message', $('#nickname').text(), $('#message').val())
@@ -101,7 +105,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div id="userLog" class="">
+                            <div id="userLog" class="" style="padding: 10px;">
                             </div>
                         </div>
                     </div>
@@ -110,7 +114,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="nickname">익명</span>
+                                <span class="input-group-text" id="nickname" onclick="changeName()">익명</span>
                                 <input type="text" class="form-control" placeholder="채팅"
                                     aria-label="Recipient's username" aria-describedby="button-addon2" id="message"
                                     autocomplete="off">
@@ -120,9 +124,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 </body>
-
 </html>
-</div>
-</div>
-</div>
