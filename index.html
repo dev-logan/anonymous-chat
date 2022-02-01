@@ -53,6 +53,11 @@
             $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
         })
 
+        socket.on('receive status', (status) => {
+            $('#chatLog').append(`<p>< ${status} ></p>`)
+            $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
+        })
+
         socket.on('receive users', (nicknames) => {
             $('#userLog').empty()
             for (const nickname of nicknames) {

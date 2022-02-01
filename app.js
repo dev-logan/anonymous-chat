@@ -13,6 +13,7 @@ io.on('connection', (socket) => {
     console.log(socket.id, '연결됨.')
 
     socket.on('send users', (nickname) => {
+        io.emit('receive status', `${nickname}님이 들어왔습니다.`)
         userList[socket.id] = nickname
         const nicknames = Object.values(userList)
         io.emit('receive users', nicknames)
@@ -25,6 +26,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
+        io.emit('receive status', `${userList[socket.id]}님이 나갔습니다.`)
         delete userList[socket.id]
         const nicknames = Object.values(userList)
         io.emit('receive users', nicknames)
