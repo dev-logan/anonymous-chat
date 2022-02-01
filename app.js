@@ -8,16 +8,11 @@ app.get('/', (req, res) => {
 })
 
 const userList = {}
-let count = 1
 
 io.on('connection', (socket) => {
     console.log(socket.id, '연결됨.')
 
     socket.on('send users', (nickname) => {
-        if (nickname === '익명') {
-            nickname += count
-            count++
-        }
         userList[socket.id] = nickname
         const nicknames = Object.values(userList)
         io.emit('receive users', nicknames)
