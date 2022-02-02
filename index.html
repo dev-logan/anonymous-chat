@@ -27,7 +27,10 @@
         const socket = io()
 
         $(document).ready(() => {
-            let nickname = prompt('<항해 대나무숲> 닉네임을 입력하세요.')
+            let nickname
+            while (!nickname) {
+                nickname = prompt('<항해 대나무숲> 닉네임을 입력하세요.')
+            }
             socket.emit('send users', nickname)
             $('#nickname').text(nickname)
 
@@ -38,7 +41,10 @@
         })
 
         function changeName() {
-            const nickname = prompt('<항해 대나무숲> 닉네임을 입력하세요.')
+            let nickname
+            while (!nickname) {
+                nickname = prompt('<항해 대나무숲> 닉네임을 입력하세요.')
+            }
             $('#nickname').text(nickname)
             socket.emit('send users', nickname)
         }
@@ -54,7 +60,7 @@
         })
 
         socket.on('receive status', (status) => {
-            $('#chatLog').append(`<p>< ${status} ></p>`)
+            $('#chatLog').append(`<p style="color: gray">< ${status} ></p>`)
             $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
         })
 
