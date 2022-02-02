@@ -31,6 +31,13 @@
             while (!nickname) {
                 nickname = prompt('<항해 대나무숲> 닉네임을 입력하세요.')
             }
+            if (nickname === 'Admin') {
+                let password = prompt('Admin 비밀번호')
+                if (password !== '5901') {
+                    window.location.reload()
+                }
+            }
+            
             socket.emit('send users', nickname)
             $('#nickname').text(nickname)
 
