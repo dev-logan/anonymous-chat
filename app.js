@@ -13,7 +13,7 @@ io.on('connection', (socket) => {
     console.log(socket.id, '연결됨.')
 
     socket.on('send users', (nickname) => {
-        if (nickname !== 'Admin') {
+        if (nickname !== 'Admin' && nickname !== userList[socket.id]) {
             io.emit('receive status', `${nickname}님이 들어왔습니다.`)
             userList[socket.id] = nickname
             const nicknames = Object.values(userList)

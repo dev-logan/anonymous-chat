@@ -48,12 +48,16 @@
         })
 
         function changeName() {
-            let nickname
-            while (!nickname) {
-                nickname = prompt('<항해 대나무숲> 닉네임을 입력하세요.')
+            let nickname = $('#nickname').text()
+            let new_nickname = 'Admin'
+            while (new_nickname === 'Admin') {
+                new_nickname = prompt('<항해 대나무숲> 변경할 닉네임을 입력하세요.')
             }
-            $('#nickname').text(nickname)
-            socket.emit('send users', nickname)
+            if (!new_nickname) {
+                new_nickname = nickname
+            }
+            $('#nickname').text(new_nickname)
+            socket.emit('send users', new_nickname)
         }
 
         function postChat() {
