@@ -50,6 +50,7 @@
         }
 
         function postChat() {
+            if (!$('#message').val()) return
             socket.emit('send message', $('#nickname').text(), $('#message').val())
             $('#message').val('')
         }
