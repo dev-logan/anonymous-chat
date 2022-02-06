@@ -9,6 +9,11 @@
 - http://54.180.150.0/
 
 ## 핵심 기능  Key Feature
+
+
+https://user-images.githubusercontent.com/43710866/152682342-8aec2e8b-8478-453f-aa96-88351bacfcf8.mp4
+
+
 - 닉네임 입력 후 채팅방 입장.
 - 실시간 채팅 기능.
 - 입장 및 퇴장 알림.
